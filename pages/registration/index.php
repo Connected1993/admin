@@ -10,13 +10,13 @@
 
 <body>
 
-    <form action="" class="col-10 col-sm-6 m-auto mt-5">
-        <div>1</div>
-        <button>new button</button>
-        <input class="form-control form-control-sm mb-1" type="text" placeholder="login">
-        <input class="form-control form-control-sm mb-1" type="password" placeholder="password">
-        <input class="form-control form-control-sm mb-1" type="password" placeholder="confirm password">
-        <input class="form-control form-control-sm mb-1" type="email" placeholder="email">
+    <form action="/core/handler.php" method="POST" class="col-10 col-sm-6 m-auto mt-5">
+        <input name="login" class="form-control form-control-sm mb-1" type="text" placeholder="login">
+        <input name="password" class="form-control form-control-sm mb-1" type="password" placeholder="password">
+        <input name="passwordConfirm" class="form-control form-control-sm mb-1" type="password" placeholder="confirm password">
+        <input name="phone" class="form-control form-control-sm mb-1" type="number" placeholder="phone">
+        <input name="email" class="form-control form-control-sm mb-1" type="email" placeholder="email">
+        <input name="action" class="form-control form-control-sm mb-1" value="registration" hidden>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
         <label class="form-check-label" for="flexCheckIndeterminate">
@@ -24,9 +24,6 @@
         </label>
         </div>
         <input class="form-control form-control-sm mb-1 btn btn-outline-success" type="submit">
-
-        <button>new button</button>
-        <div>2</div>
     </form>
 
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
