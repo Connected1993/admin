@@ -28,6 +28,15 @@
         <input data="reg" class="form-control form-control-sm mb-1 btn btn-outline-success" type="submit" value="Зарегистрироваться">
     </form>
 
+
+    <form  id="authorization"  action="/core/handler.php" method="POST" class="col-10 col-sm-4 m-auto mt-5">
+        <input name="account" class="form-control form-control-sm mb-1" type="text" placeholder="login/email/phone">
+        <input name="password" class="form-control form-control-sm mb-1" type="password" placeholder="password">
+        </div>
+        <input name="action" class="form-control form-control-sm mb-1" value="authorization" hidden>
+        <input data="auth" class="form-control form-control-sm mb-1 btn btn-outline-success" type="submit" value="Войти">
+    </form>
+
     <script src="/public/js/confirm.js" type="module"></script>
     <script src="/public/js/request.js" type="module"></script>
     <script src="/public/library/intl-tel-input/build/js/intlTelInput.js"></script>

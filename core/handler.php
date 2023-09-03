@@ -9,28 +9,26 @@ if (isset($_POST['action']))
     require 'config.php';
     require 'db.php';
 
-    debug($_POST);
-    $login =    $_POST['login'];
-    $password = $_POST['password'];
-    $passwordConfirm = $_POST['passwordConfirm'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-
-    if ($password != $passwordConfirm) {
-        echo 'пароли не совпадают!';
-        return false;
-    }
+    //debug($_POST);
 
 
-    $sql = " INSERT INTO users (login,password,email,phone) VALUES ('$login','$password','$email',$phone) ";
-    // отправили селект в базу
-    $dbh->query($sql);
-    // верни мне id последней вставленной строки
-    $result = $dbh->lastInsertId();
-    if ($result)
+    $action = $_POST['action'];
+
+    switch($action)
     {
-        echo 'Вы успешно зарегистрировались!';
+        case 'registration': 
+        case 'authorization':
+        
+        //  если такой файл существует
+        if ( file_exists("function/$action.php") )
+        {
+            require "function/$action.php"; 
+        }
+        break;
+        default: die('Неизвестный action'); break;
     }
+
+
 }
 
 
@@ -40,3 +38,8 @@ function debug($data):void
     print_r($data);
     echo '</pre>';
 }
+
+//  to do 
+// 0) protected SQL injection
+// 1) md5 hash passowrd
+// 2) validation phone and email
