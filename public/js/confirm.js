@@ -7,9 +7,13 @@ const BTN_REG = FORM.querySelector('input[data=reg]');
 BTN_REG.addEventListener('click',registration);
 
 
-    window.intlTelInput(FORM.querySelector('input[name=phone]'), {
+const test =  window.intlTelInput(FORM.querySelector('input[name=phone]'), {
         localizedCountries: {ru:"Russian"},
+        initialCountry:'ru',
+        customContainer:"col-12 mb-1",
+        PreferredCountries:["ru","ru"],
         onlyCountries: ["ru","ua","by","kz"],
+        nationalMode:false,
         utilsScript: "/public/library/intl-tel-input/build/js/utils.js"
   });
 
@@ -27,6 +31,7 @@ function registration(Event)
     let form = new FormData(FORM)
     let cansel = false;
     for (let [k,v] of form ) {
+        console.log(k,v);
         if (v === '') {
             cansel = true;
             // alert('заполните все поля!');
@@ -58,6 +63,4 @@ function registration(Event)
 }
 
 
-
-export default FORM;
 
